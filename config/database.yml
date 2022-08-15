@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: daniel
+  password: postgres
+
+development:
+  <<: *default
+  database: dio_users_dev
+test:
+  <<: *default
+  database: dio_users_test
+
+production:
+  <<: *default
+  database: users_production
+  username: users
+  password: <%= ENV['USERS_DATABASE_PASSWORD'] %>
